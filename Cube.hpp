@@ -53,6 +53,7 @@ class Cube {
 		Cube&	operator+=(Cube& opCube);
 		Cube&	operator-=(Cube& opCube);
 		
+		bool	operator==(Cube& opCube) const;
 		bool	operator!=(Cube& opCube) const;
 		
 		// left to overload: <, >, <=. >=, = (copy constr?), !=, ==, <<, >>
