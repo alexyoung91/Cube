@@ -126,6 +126,10 @@ Cube& Cube::operator-=(Cube& opCube) {
 	return *this;
 }
 
+bool Cube::operator!=(Cube& opCube) const {
+	return (this->getVolume() != opCube.getVolume()) ? true : false;
+}
+
 // all static data in initialized to zero when the first object is
 // created. With no other initialization present it is 0.
 int Cube::objectCount; // = 0;
