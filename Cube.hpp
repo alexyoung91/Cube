@@ -53,10 +53,15 @@ class Cube {
 		Cube&	operator+=(Cube& opCube);
 		Cube&	operator-=(Cube& opCube);
 		
+		// Volume comparison
+		bool	operator<(Cube& opCube) const;
+		bool	operator>(Cube& opCube) const;
+		bool	operator<=(Cube& opCube) const;
+		bool	operator>=(Cube& opCube) const;
 		bool	operator==(Cube& opCube) const;
 		bool	operator!=(Cube& opCube) const;
 		
-		// left to overload: <, >, <=. >=, = (copy constr?), <<, >>
+		// left to overload: = (copy constr?), <<, >>
 		
 		// static members cannot have a const qualifier
 		static int getObjectCount() {

@@ -126,6 +126,22 @@ Cube& Cube::operator-=(Cube& opCube) {
 	return *this;
 }
 
+bool Cube::operator<(Cube& opCube) const {
+	return (this->getVolume() < opCube.getVolume()) ? true : false;
+}
+
+bool Cube::operator>(Cube& opCube) const {
+	return (this->getVolume() > opCube.getVolume()) ? true : false;
+}
+
+bool Cube::operator<=(Cube& opCube) const {
+	return (this->getVolume() <= opCube.getVolume()) ? true : false;
+}
+
+bool Cube::operator>=(Cube& opCube) const {
+	return (this->getVolume() >= opCube.getVolume()) ? true : false;
+}
+
 bool Cube::operator==(Cube& opCube) const {
 	return (this->getVolume() == opCube.getVolume()) ? true : false;
 }
