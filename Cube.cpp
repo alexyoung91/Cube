@@ -1,3 +1,5 @@
+#include "Cube.hpp"
+
 #include <iostream>
 
 using std::cout;
@@ -127,10 +129,3 @@ Cube& Cube::operator-=(Cube& opCube) {
 // all static data in initialized to zero when the first object is
 // created. With no other initialization present it is 0.
 int Cube::objectCount; // = 0;
-
-// passing by value invokes the copy constructor, if a pointer to the
-// object or an object reference were passed, the copy constuctor would
-// not be called!
-void displayCubeVolume(const Cube cube) {
-	cout << "Volume: " << cube.getVolume() << endl;
-}

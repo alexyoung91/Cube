@@ -1,7 +1,16 @@
 #include <iostream>
 
+#include "Cube.hpp"
+
 using std::cout;
 using std::endl;
+
+// passing by value invokes the copy constructor, if a pointer to the
+// object or an object reference were passed, the copy constuctor would
+// not be called!
+void displayCubeVolume(const Cube& cube) {
+	cout << "Volume: " << cube.getVolume() << endl;
+}
 
 int main() {
 	// 11.34g cm-3 density of lead

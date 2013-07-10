@@ -1,3 +1,6 @@
+#ifndef CUBE_HPP_
+#define CUBE_HPP_
+
 /**
  * Created for an increased understanding of object oriented programming
  * using C++
@@ -50,6 +53,8 @@ class Cube {
 		Cube&	operator+=(Cube& opCube);
 		Cube&	operator-=(Cube& opCube);
 		
+		bool	operator!=(Cube& opCube) const;
+		
 		// left to overload: <, >, <=. >=, = (copy constr?), !=, ==, <<, >>
 		
 		// static members cannot have a const qualifier
@@ -57,3 +62,5 @@ class Cube {
 			return objectCount;
 		}
 };
+
+#endif
