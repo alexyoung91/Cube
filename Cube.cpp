@@ -8,10 +8,11 @@ Cube::Cube() {
 	objectCount++;
 }
 
-// Copy constructor - if not defined compiler makes one, only really
-// used if the class has pointer variables and some dynamic
-// memory allocations (e.g. in the normal constructor but used here to
-// demonstrate that it can be explicitiy declared
+/* Copy constructor - if not defined compiler makes one, only really
+ * used if the class has pointer variables and some dynamic
+ * memory allocations (e.g. in the normal constructor but used here to
+ * demonstrate that it can be explicitiy declared
+ */
 Cube::Cube(const Cube& cube) {
 	width = cube.width;
 	height = cube.height;
@@ -32,7 +33,6 @@ Cube::Cube(double l, double b, double h, double d) {
 /* Using initialization lists to initalize fields
 Cube::Cube(double l, double b, double h, double d):
 	width(l), height(b), depth(h), density(d) {
-		cout << "Creating cube." << endl;
 		objectCount++;
 }
 */
@@ -145,8 +145,9 @@ bool Cube::operator!=(Cube& opCube) const {
 	return (this->getVolume() != opCube.getVolume()) ? true : false;
 }
 
-// all static data in initialized to zero when the first object is
-// created. With no other initialization present it is 0.
+/* All static data is initialized to zero when the first object is
+ * created if no other initialization present.
+ */
 int Cube::objectCount; // = 0;
 
 std::ostream& operator <<(std::ostream& os, Cube& cube) {

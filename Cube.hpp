@@ -16,8 +16,9 @@ class Cube {
 		double	depth;
 		double	density;
 		
-		// could be useful for dynamic allocation tests i.e. if theres
-		// any objects that havent been deleted
+		/* Could be useful for dynamic allocation tests i.e. if theres
+		 * any objects that havent been deleted
+		 */
 		static int objectCount;
 		
 	public:
