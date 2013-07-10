@@ -1,6 +1,8 @@
 #ifndef CUBE_HPP_
 #define CUBE_HPP_
 
+#include <iostream>
+
 /**
  * Created for an increased understanding of object oriented programming
  * using C++
@@ -17,21 +19,10 @@ class Cube {
 		// could be useful for dynamic allocation tests i.e. if theres
 		// any objects that havent been deleted
 		static int objectCount;
-	
-	/**
-	 * A protected member is very similar to a private member but it
-	 * can be accessed in derived (child) classes. A protected member
-	 * cannot be accessed publicly.
-	 * 
-	 * This is covered in "Inheritance"
-	 */
-	protected:
-		bool	egVariable;
 		
 	public:
 				Cube();
 				Cube(const Cube& cube); // copy constructor
-				//Cube(const Cube& cube) = delete; // non copyable
 				Cube(double l, double b, double h, double d);
 				~Cube();
 				
@@ -48,20 +39,22 @@ class Cube {
 		double	getVolume() const;
 		double	getMass() const;
 		
-		Cube	operator+(Cube& opCube) const;
-		Cube	operator-(Cube& opCube) const;
-		Cube&	operator+=(Cube& opCube);
-		Cube&	operator-=(Cube& opCube);
+		// Modifying the cube
+		Cube	operator +(Cube& opCube) const;
+		Cube	operator -(Cube& opCube) const;
+		Cube&	operator +=(Cube& opCube);
+		Cube&	operator -=(Cube& opCube);
 		
 		// Volume comparison
-		bool	operator<(Cube& opCube) const;
-		bool	operator>(Cube& opCube) const;
-		bool	operator<=(Cube& opCube) const;
-		bool	operator>=(Cube& opCube) const;
-		bool	operator==(Cube& opCube) const;
-		bool	operator!=(Cube& opCube) const;
+		bool	operator <(Cube& opCube) const;
+		bool	operator >(Cube& opCube) const;
+		bool	operator <=(Cube& opCube) const;
+		bool	operator >=(Cube& opCube) const;
+		bool	operator ==(Cube& opCube) const;
+		bool	operator !=(Cube& opCube) const;
 		
-		// left to overload: = (copy constr?), <<, >>
+		// Output cube properties
+		friend std::ostream& operator <<(std::ostream& os, Cube& cube);
 		
 		// static members cannot have a const qualifier
 		static int getObjectCount() {

@@ -2,11 +2,8 @@
 
 #include <iostream>
 
-using std::cout;
-using std::endl;
-
+// Default constructor
 Cube::Cube() {
-	cout << "Creating cube with default constructor." << endl;
 	width = height = depth = density = 0.0;
 	objectCount++;
 }
@@ -16,7 +13,6 @@ Cube::Cube() {
 // memory allocations (e.g. in the normal constructor but used here to
 // demonstrate that it can be explicitiy declared
 Cube::Cube(const Cube& cube) {
-	cout << "Creating cube with copy constructor." << endl;
 	width = cube.width;
 	height = cube.height;
 	depth = cube.depth;
@@ -24,8 +20,8 @@ Cube::Cube(const Cube& cube) {
 	objectCount++;
 }
 
+// Parameterized constructor
 Cube::Cube(double l, double b, double h, double d) {
-	cout << "Creating cube with parameterized constructor." << endl;
 	width = l;
 	height = b;
 	depth = h;
@@ -42,7 +38,6 @@ Cube::Cube(double l, double b, double h, double d):
 */
 
 Cube::~Cube() {
-	cout << "Releasing cube." << endl;
 	objectCount--;
 }
 
@@ -153,3 +148,12 @@ bool Cube::operator!=(Cube& opCube) const {
 // all static data in initialized to zero when the first object is
 // created. With no other initialization present it is 0.
 int Cube::objectCount; // = 0;
+
+std::ostream& operator <<(std::ostream& os, Cube& cube) {
+	return os << "Width: " 		<< cube.getWidth() 		<< std::endl
+			  << "Height: " 	<< cube.getHeight() 	<< std::endl
+			  << "Depth: " 		<< cube.getDepth() 		<< std::endl
+			  << "Volume: " 	<< cube.getVolume() 	<< std::endl
+			  << "Density: "	<< cube.getDensity() 	<< std::endl
+			  << "Mass: " 		<< cube.getMass() 		<< std::endl;
+}
