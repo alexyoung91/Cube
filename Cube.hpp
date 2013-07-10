@@ -9,10 +9,10 @@
 class Cube {
 	
 	private:
-		double	length;
-		double	breadth;
+		double	width;
 		double	height;
-		double	density; // mass per unit volume
+		double	depth;
+		double	density;
 		
 		// could be useful for dynamic allocation tests i.e. if theres
 		// any objects that havent been deleted
@@ -35,14 +35,14 @@ class Cube {
 				Cube(double l, double b, double h, double d);
 				~Cube();
 				
-		void	setLength(double l);
-		void	setBreadth(double b);
-		void	setHeight(double h);
+		void	setWidth(double l);
+		void	setHeight(double b);
+		void	setDepth(double h);
 		void	setDensity(double d);
 		
-		double	getLength() const;
-		double	getBreadth() const;
+		double	getWidth() const;
 		double	getHeight() const;
+		double	getDepth() const;
 		double	getDensity() const;
 		
 		double	getVolume() const;
@@ -56,7 +56,7 @@ class Cube {
 		bool	operator==(Cube& opCube) const;
 		bool	operator!=(Cube& opCube) const;
 		
-		// left to overload: <, >, <=. >=, = (copy constr?), !=, ==, <<, >>
+		// left to overload: <, >, <=. >=, = (copy constr?), <<, >>
 		
 		// static members cannot have a const qualifier
 		static int getObjectCount() {

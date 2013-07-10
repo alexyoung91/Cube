@@ -7,7 +7,7 @@ using std::endl;
 
 Cube::Cube() {
 	cout << "Creating cube with default constructor." << endl;
-	length = breadth = height = density = 0.0;
+	width = height = depth = density = 0.0;
 	objectCount++;
 }
 
@@ -17,25 +17,25 @@ Cube::Cube() {
 // demonstrate that it can be explicitiy declared
 Cube::Cube(const Cube& cube) {
 	cout << "Creating cube with copy constructor." << endl;
-	length = cube.length;
-	breadth = cube.breadth;
+	width = cube.width;
 	height = cube.height;
+	depth = cube.depth;
 	density = cube.density;
 	objectCount++;
 }
 
 Cube::Cube(double l, double b, double h, double d) {
 	cout << "Creating cube with parameterized constructor." << endl;
-	length = l;
-	breadth = b;
-	height = h;
+	width = l;
+	height = b;
+	depth = h;
 	density = d;
 	objectCount++;
 }
 
 /* Using initialization lists to initalize fields
 Cube::Cube(double l, double b, double h, double d):
-	length(l), breadth(b), height(h), density(d) {
+	width(l), height(b), depth(h), density(d) {
 		cout << "Creating cube." << endl;
 		objectCount++;
 }
@@ -46,32 +46,32 @@ Cube::~Cube() {
 	objectCount--;
 }
 
-void Cube::setLength(double l) {
-    length = l;
+void Cube::setWidth(double l) {
+    width = l;
 }
 
-void Cube::setBreadth(double b) {
-    breadth = b;
+void Cube::setHeight(double b) {
+    height = b;
 }
 
-void Cube::setHeight(double h) {
-    height = h;
+void Cube::setDepth(double h) {
+    depth = h;
 }
 
 void Cube::setDensity(double d) {
     density = d;
 }
 
-double Cube::getLength() const {
-	return length;
-}
-
-double Cube::getBreadth() const {
-	return breadth;
+double Cube::getWidth() const {
+	return width;
 }
 
 double Cube::getHeight() const {
 	return height;
+}
+
+double Cube::getDepth() const {
+	return depth;
 }
 
 double Cube::getDensity() const {
@@ -79,7 +79,7 @@ double Cube::getDensity() const {
 }
 
 double Cube::getVolume() const {
-	return length * breadth * height;
+	return width * height * depth;
 }
 
 double Cube::getMass() const {
@@ -88,9 +88,9 @@ double Cube::getMass() const {
 
 Cube Cube::operator+(Cube& opCube) const {
 	Cube newCube;
-	newCube.setLength(this->length + opCube.length);
-	newCube.setBreadth(this->breadth + opCube.breadth);
+	newCube.setWidth(this->width + opCube.width);
 	newCube.setHeight(this->height + opCube.height);
+	newCube.setDepth(this->depth + opCube.depth);
 	newCube.setDensity((this->getMass() + opCube.getMass()) /
 					   (this->getVolume() + opCube.getVolume()));
 	return newCube;
@@ -98,9 +98,9 @@ Cube Cube::operator+(Cube& opCube) const {
 
 Cube Cube::operator-(Cube& opCube) const {
 	Cube newCube;
-	newCube.setLength(this->length - opCube.length);
-	newCube.setBreadth(this->breadth - opCube.breadth);
+	newCube.setWidth(this->width - opCube.width);
 	newCube.setHeight(this->height - opCube.height);
+	newCube.setDepth(this->depth - opCube.depth);
 	newCube.setDensity((this->getMass() - opCube.getMass()) /
 					   (this->getVolume() - opCube.getVolume()));
 	return newCube;
@@ -108,9 +108,9 @@ Cube Cube::operator-(Cube& opCube) const {
 
 Cube& Cube::operator+=(Cube& opCube) {
 	double oldMass = this->getMass(), oldVol = this->getVolume();
-	this->setLength(this->length + opCube.length);
-	this->setBreadth(this->breadth + opCube.breadth);
+	this->setWidth(this->width + opCube.width);
 	this->setHeight(this->height + opCube.height);
+	this->setDepth(this->depth + opCube.depth);
 	this->setDensity((oldMass + opCube.getMass()) /
 					 (oldVol + opCube.getVolume()));
 	return *this;
@@ -118,9 +118,9 @@ Cube& Cube::operator+=(Cube& opCube) {
 
 Cube& Cube::operator-=(Cube& opCube) {
 	double oldMass = this->getMass(), oldVol = this->getVolume();
-	this->setLength(this->length - opCube.length);
-	this->setBreadth(this->breadth - opCube.breadth);
+	this->setWidth(this->width - opCube.width);
 	this->setHeight(this->height - opCube.height);
+	this->setDepth(this->depth - opCube.depth);
 	this->setDensity((oldMass - opCube.getMass()) /
 					 (oldVol - opCube.getVolume()));
 	return *this;
