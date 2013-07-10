@@ -53,13 +53,13 @@ class Cube {
 		bool	operator ==(Cube& opCube) const;
 		bool	operator !=(Cube& opCube) const;
 		
-		// Output cube properties
-		friend std::ostream& operator <<(std::ostream& os, Cube& cube);
-		
 		// static members cannot have a const qualifier
 		static int getObjectCount() {
 			return objectCount;
 		}
+		
+		// Output cube properties
+		friend std::ostream& operator <<(std::ostream& os, Cube& cube);
 };
 
 #endif
